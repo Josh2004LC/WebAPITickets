@@ -110,7 +110,6 @@ namespace WebAPITickets.Controllers
             usuarioExistente.us_nombre_completo = usuario.us_nombre_completo;
             usuarioExistente.us_correo = usuario.us_correo;
 
-            a
             if (!string.IsNullOrEmpty(usuario.us_clave))
             {
                 // Si se requiere hashear la contra se hace asi:
