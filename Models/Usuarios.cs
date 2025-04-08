@@ -1,4 +1,6 @@
-﻿namespace WebAPITickets.Models
+﻿using System;
+
+namespace WebAPITickets.Models
 {
     public class Usuarios
     {

@@ -32,12 +32,10 @@ namespace WebAPITickets.Controllers
         public async Task<ActionResult<Roles>> GetRol(int id)
         {
             var rol = await _contexto.Roles.FindAsync(id);
-
             if (rol == null)
             {
                 return NotFound();
             }
-
             return rol;
         }
 
@@ -45,12 +43,9 @@ namespace WebAPITickets.Controllers
         [HttpPost]
         public async Task<ActionResult<Roles>> PostRol(Roles rol)
         {
-            
             rol.ro_fecha_adicion = DateTime.Now;
-
             _contexto.Roles.Add(rol);
             await _contexto.SaveChangesAsync();
-
             return CreatedAtAction("GetRol", new { id = rol.ro_identificador }, rol);
         }
 
@@ -63,15 +58,12 @@ namespace WebAPITickets.Controllers
                 return BadRequest();
             }
 
-            
             var rolExistente = await _contexto.Roles.FindAsync(id);
-
             if (rolExistente == null)
             {
                 return NotFound();
             }
 
-          
             rolExistente.ro_decripcion = rol.ro_decripcion;
             rolExistente.ro_fecha_modificacion = DateTime.Now;
             rolExistente.ro_modificado_por = rol.ro_modificado_por;
@@ -91,7 +83,6 @@ namespace WebAPITickets.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
@@ -104,10 +95,8 @@ namespace WebAPITickets.Controllers
             {
                 return NotFound();
             }
-
             _contexto.Roles.Remove(rol);
             await _contexto.SaveChangesAsync();
-
             return NoContent();
         }
 
